@@ -54,6 +54,7 @@ export default {
         async copyText() {
             try {
                 await navigator.clipboard.writeText(this.field.value);
+                Nova.success('String is copy')
             } catch($e) {
                 alert('Cannot copy');
             }

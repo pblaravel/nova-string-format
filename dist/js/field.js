@@ -161,20 +161,21 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 return navigator.clipboard.writeText(_this.field.value);
 
               case 3:
-                _context.next = 8;
+                Nova.success('String is copy');
+                _context.next = 9;
                 break;
 
-              case 5:
-                _context.prev = 5;
+              case 6:
+                _context.prev = 6;
                 _context.t0 = _context["catch"](0);
                 alert('Cannot copy');
 
-              case 8:
+              case 9:
               case "end":
                 return _context.stop();
             }
           }
-        }, _callee, null, [[0, 5]]);
+        }, _callee, null, [[0, 6]]);
       }))();
     },
     openExternal: function openExternal() {

@@ -1,6 +1,7 @@
 {
     "name": "hakerkiler/nova-string-format",
     "description": "A Laravel Nova field.",
+    "type": "library",
     "keywords": [
         "laravel",
         "nova"

@@ -38,6 +38,10 @@ export default {
          * Set the initial, internal value for the field.
          */
         formatValue() {
+            if(this.field.value.isEmpty()){
+                this.useCopy = false;
+                return '—'
+            }
             if(this.stringLimit === 0){
                 return this.field.value
             }

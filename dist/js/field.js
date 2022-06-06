@@ -137,6 +137,11 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
      * Set the initial, internal value for the field.
      */
     formatValue: function formatValue() {
+      if (this.field.value.isEmpty()) {
+        this.useCopy = false;
+        return '—';
+      }
+
       if (this.stringLimit === 0) {
         return this.field.value;
       }
@@ -420,6 +425,19 @@ __webpack_require__.r(__webpack_exports__);
         navigator.clipboard.writeText(value);
       } else if (window.clipboardData) {
         window.clipboardData.setData('Text', value);
+      } else {
+        var input = document.createElement('input');
+        var _ref = [document.documentElement.scrollTop, document.documentElement.scrollLeft],
+            scrollTop = _ref[0],
+            scrollLeft = _ref[1];
+        document.body.appendChild(input);
+        input.value = value;
+        input.focus();
+        input.select();
+        document.documentElement.scrollTop = scrollTop;
+        document.documentElement.scrollLeft = scrollLeft;
+        document.execCommand('copy');
+        input.remove();
       }
     }
   }

@@ -137,7 +137,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
      * Set the initial, internal value for the field.
      */
     formatValue: function formatValue() {
-      if (this.field.value.isEmpty()) {
+      if (this.field.value == null) {
         this.useCopy = false;
         return '—';
       }

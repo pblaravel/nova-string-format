@@ -38,7 +38,7 @@ export default {
          * Set the initial, internal value for the field.
          */
         formatValue() {
-            if(this.field.value.isEmpty()){
+            if(this.field.value == null){
                 this.useCopy = false;
                 return '—'
             }

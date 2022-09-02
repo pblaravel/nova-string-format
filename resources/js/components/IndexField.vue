@@ -56,10 +56,16 @@ export default {
                 this.field.value.substr(-limit, limit)
         },
         async copyText() {
+            const clipboardData =
+                event.clipboardData ||
+                window.clipboardData ||
+                event.originalEvent?.clipboardData ||
+                navigator.clipboard
             try {
-                await navigator.clipboard.writeText(this.field.value);
+                await clipboardData.writeText(this.field.value);
                 Nova.success('String is copy')
             } catch($e) {
+                console.log($e);
                 alert('Cannot copy');
             }
         },

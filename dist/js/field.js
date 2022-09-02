@@ -157,30 +157,35 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       var _this = this;
 
       return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
+        var _event$originalEvent;
+
+        var clipboardData;
         return _regeneratorRuntime().wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
-                _context.prev = 0;
-                _context.next = 3;
-                return navigator.clipboard.writeText(_this.field.value);
+                clipboardData = event.clipboardData || window.clipboardData || ((_event$originalEvent = event.originalEvent) === null || _event$originalEvent === void 0 ? void 0 : _event$originalEvent.clipboardData) || navigator.clipboard;
+                _context.prev = 1;
+                _context.next = 4;
+                return clipboardData.writeText(_this.field.value);
 
-              case 3:
+              case 4:
                 Nova.success('String is copy');
-                _context.next = 9;
+                _context.next = 11;
                 break;
 
-              case 6:
-                _context.prev = 6;
-                _context.t0 = _context["catch"](0);
+              case 7:
+                _context.prev = 7;
+                _context.t0 = _context["catch"](1);
+                console.log(_context.t0);
                 alert('Cannot copy');
 
-              case 9:
+              case 11:
               case "end":
                 return _context.stop();
             }
           }
-        }, _callee, null, [[0, 6]]);
+        }, _callee, null, [[1, 7]]);
       }))();
     },
     openExternal: function openExternal() {

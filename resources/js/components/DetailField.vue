@@ -26,6 +26,8 @@
 </template>
 
 <script>
+import {copyText} from "vue3-clipboard";
+
 export default {
     props: ['index', 'resource', 'resourceName', 'resourceId', 'field'],
     data () {
@@ -36,14 +38,16 @@ export default {
         }
     },
     methods: {
-        async copyText() {
-            try {
-                await navigator.clipboard.writeText(this.field.value);
-                Nova.success('String is copy')
-                // self.$toasted.show("Yay, it worked!", {type: "success"});
-            } catch($e) {
-                alert('Cannot copy');
-            }
+        copyText() {
+            copyText(this.field.value, undefined, (error, event) => {
+                if (error) {
+                    alert('Can not copy')
+                    console.log(error)
+                } else {
+                    alert('Copied')
+                    console.log(event)
+                }
+            })
         },
         openExternal() {
             return this.field.externalPath + this.field.value

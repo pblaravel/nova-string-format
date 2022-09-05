@@ -148,7 +148,15 @@ __webpack_require__.r(__webpack_exports__);
       return this.field.value.substr(0, limit) + ' ... ' + this.field.value.substr(-limit, limit);
     },
     copyText: function copyText() {
-      (0,vue3_clipboard__WEBPACK_IMPORTED_MODULE_0__.copyText)(this.field.value);
+      (0,vue3_clipboard__WEBPACK_IMPORTED_MODULE_0__.copyText)(this.field.value, undefined, function (error, event) {
+        if (error) {
+          alert('Can not copy');
+          console.log(error);
+        } else {
+          alert('Copied');
+          console.log(event);
+        }
+      });
     },
     openExternal: function openExternal() {
       console.log(this.field);

@@ -59,7 +59,15 @@ export default {
                 this.field.value.substr(-limit, limit)
         },
         copyText() {
-            copyText(this.field.value)
+            copyText(this.field.value, undefined, (error, event) => {
+                if (error) {
+                    alert('Can not copy')
+                    console.log(error)
+                } else {
+                    alert('Copied')
+                    console.log(event)
+                }
+            })
         },
         openExternal() {
             console.log(this.field)

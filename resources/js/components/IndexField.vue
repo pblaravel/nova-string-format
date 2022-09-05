@@ -22,6 +22,9 @@
 </template>
 
 <script>
+
+    import VueClipboard, {copyText} from 'vue3-clipboard'
+
 export default {
     props: ['resourceName', 'field'],
 
@@ -55,19 +58,8 @@ export default {
             return this.field.value.substr(0, limit) + ' ... ' +
                 this.field.value.substr(-limit, limit)
         },
-        async copyText(event) {
-            const clipboardData =
-                event.clipboardData ||
-                window.clipboardData ||
-                event.originalEvent?.clipboardData ||
-                navigator.clipboard
-            try {
-                await clipboardData.writeText(this.field.value);
-                Nova.success('String is copy')
-            } catch($e) {
-                console.log($e);
-                alert('Cannot copy');
-            }
+        copyText() {
+            copyText(this.field.value)
         },
         openExternal() {
             console.log(this.field)

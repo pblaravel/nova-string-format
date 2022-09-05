@@ -153,7 +153,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       var limit = parseInt((this.stringLimit / 2).toString());
       return this.field.value.substr(0, limit) + ' ... ' + this.field.value.substr(-limit, limit);
     },
-    copyText: function copyText() {
+    copyText: function copyText(event) {
       var _this = this;
 
       return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {

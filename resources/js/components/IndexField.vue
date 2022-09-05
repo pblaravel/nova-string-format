@@ -55,7 +55,7 @@ export default {
             return this.field.value.substr(0, limit) + ' ... ' +
                 this.field.value.substr(-limit, limit)
         },
-        async copyText() {
+        async copyText(event) {
             const clipboardData =
                 event.clipboardData ||
                 window.clipboardData ||
